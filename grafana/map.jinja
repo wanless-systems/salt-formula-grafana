@@ -49,9 +49,13 @@ Debian:
   dashboards:
     enabled: false
 
+# The additional packages are recommended from https://grafana.com/docs/installation/rpm/
 RedHat:
   pkgs:
   - grafana
+  - fontconfig
+  - freetype*
+  - urw-fonts
   service: grafana-server
   user: grafana
   group: grafana
