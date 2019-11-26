@@ -60,6 +60,11 @@ RedHat:
   root_url: '%(protocol)s://%(domain)s:%(http_port)s/'
   dashboards:
     enabled: false
+  path:
+    home: /usr/share/grafana
+    data: /var/lib/grafana
+    logs: /var/log/grafana
+    pid_file_dir: /var/run/grafana
 
 {%- endload %}
 
