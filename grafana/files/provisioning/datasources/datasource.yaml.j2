@@ -9,7 +9,7 @@ datasources:
     -
         name: {{ datasource.name }}
         type: {{ datasource.datatype }}
-        access: {{ datasource.get('access', 'proxy' }}
+        access: {{ datasource.get('access', 'proxy') }}
         orgId: {{ datasource.get('orgId', 1) }}
         url: {{ datasource.get('url') }}
         #   # <string> database password, if used
