@@ -84,6 +84,17 @@ grafana_{{ theme_name }}_css_override:
     - user: {{ server.user }}
     - group: {{ server.group }}
 
+{% if salt['pillar.get']('grafana:server:provisioning:datasource', []) %}
+provisioning_of_datasources_for_grafana:
+    file.managed:
+        - name: /etc/grafana/provisioning/datasources/salt-datasources.yaml
+        - template: jinja
+        - source: salt://grafana/files/provisioning/datasources/datasource.yaml.j2
+        - user: root
+        - group: grafana
+        - mode: 640
+{% endif %}
+
 {{server.path.logs}}:
   file.directory:
     - makedirs: True
@@ -101,6 +112,9 @@ grafana_service:
   - watch:
     - file: /etc/grafana/grafana.ini
     - file: /etc/default/grafana-server
+{%- if salt['pillar.get']('grafana:server:provisioning:datasource', []) %}
+    - file: /etc/grafana/provisioning/datasources/salt-datasources.yaml
+{%- endif %}
 
 {%- for plugin_name, plugin in server.get('plugins', {}).items() %}
 {%- if plugin.get('enabled', False) %}
