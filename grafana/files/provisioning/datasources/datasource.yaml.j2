@@ -19,7 +19,7 @@ datasources:
         #   # <string> database name, if used
         database: {{ datasource.get('database', '') }}
         #   # <bool> enable/disable basic auth
-        basicAuth: {{ datasource.get('basicAuth', '') }}
+        basicAuth: {{ datasource.get('basicAuth', false) }}
         #   # <string> basic auth username
         basicAuthUser: {{ datasource.get('basicAuthUser', '') }}
         #   # <string> basic auth password
