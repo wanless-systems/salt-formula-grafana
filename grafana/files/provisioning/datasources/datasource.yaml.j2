@@ -17,15 +17,15 @@ datasources:
         #   # <string> database user, if used
         user: {{ datasource.get('user', '') }}
         #   # <string> database name, if used
-        database: {{ datasource.get('database') }}
+        database: {{ datasource.get('database', '') }}
         #   # <bool> enable/disable basic auth
-        basicAuth: {{ datasource.get('basicAuth') }}
+        basicAuth: {{ datasource.get('basicAuth', '') }}
         #   # <string> basic auth username
-        basicAuthUser: {{ datasource.get('basicAuthUser') }}
+        basicAuthUser: {{ datasource.get('basicAuthUser', '') }}
         #   # <string> basic auth password
-        basicAuthPassword: {{ datasource.get('basicAuthPassword') }}
+        basicAuthPassword: {{ datasource.get('basicAuthPassword', '') }}
         #   # <bool> enable/disable with credentials headers
-        withCredentials: {{ datasource.get('withCredentials') }}
+        withCredentials: {{ datasource.get('withCredentials', false) }}
         #   # <bool> mark as default datasource. Max one per org
         isDefault: {{ datasource.get('isDefault', false) }}
         #   # <map> fields that will be converted to json and stored in json_data
