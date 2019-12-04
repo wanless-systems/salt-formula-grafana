@@ -21,7 +21,7 @@ ssl_skip_verify = false
 # Search user bind dn
 bind_dn = "{{ ldap_params.bind_dn }}"
 # Search user bind password
-bind_password = "{{ ldap_params.bind_password }}"
+bind_password = "{{ ldap_params.bind_password | yaml_dquote }}"
 
 # User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
 search_filter = "{{ ldap_params.user_search_filter }}"
