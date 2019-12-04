@@ -19,12 +19,13 @@ ssl_skip_verify = false
 # root_ca_cert = /path/to/certificate.crt
 
 # Search user bind dn
-bind_dn = "{{ ldap_params.bind_dn }}"
+bind_dn = {{ ldap_params.bind_dn | yaml_dquote }}
+
 # Search user bind password
-bind_password = "{{ ldap_params.bind_password | yaml_dquote }}"
+bind_password = {{ ldap_params.bind_password | yaml_dquote }}
 
 # User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
-search_filter = "{{ ldap_params.user_search_filter }}"
+search_filter = {{ ldap_params.user_search_filter | yaml_dquote }}
 
 # An array of base dns to search through
 search_base_dns = {{ ldap_params.user_search_base_dns }}
